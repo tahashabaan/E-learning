@@ -1,0 +1,1 @@
+import {check}  from 'export default first'

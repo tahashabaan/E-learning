@@ -1,0 +1,19 @@
+const { Router } =require("express");
+
+const categoryService = require("../services/categoryService");
+
+console.log(categoryService)
+const categoryRoute = Router()
+
+categoryRoute
+.route('category')
+.get(categoryService.getDocuments)
+.post(categoryService.insertDocument)
+
+categoryRoute
+.route('category/:categoryId')
+.get(categoryService.ge)
+.put()
+.delete()
+
+module.exports= categoryRoute

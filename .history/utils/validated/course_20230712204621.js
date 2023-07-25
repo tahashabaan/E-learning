@@ -1,0 +1,1 @@
+const slugify = require('slugify')
