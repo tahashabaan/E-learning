@@ -6,7 +6,7 @@ const Cart = require('../models/cart');
 
 
 exports.createOrder = asyncHandler(async(req, res, next) => {
-    const {country, paymentMethod} = req.body;
+    const {country} = req.body;
     const order = await Order.findOne({user:req.userId});
     const cart = await Cart.findOne({user:req.userId});
 
@@ -15,7 +15,7 @@ exports.createOrder = asyncHandler(async(req, res, next) => {
         await Order.create({
             country,
             user:req.userId,
-            paymentMethod,
+            paymentMethod: stripe , paypal, vise
             items:cart.items,
             totalPrice
         })
@@ -25,16 +25,17 @@ exports.createOrder = asyncHandler(async(req, res, next) => {
 })
 
 
-exports.getOrderLoggedUser = asyncHandler(async(req, res, next) => {
+exports.getOrder = asyncHandler(async(req, res, next) => {
     const order = await Order.findOne({user:req.userId});
+
     res.status(202).json({message:'order this user', order})
 })
 
 exports.getOrders = asyncHandler(async(req, res, next) => {
     const order = await Order.find();
+
     res.status(202).json({message:'orders ', order})
 })
-
 
 exports.statusOrder = asyncHandler(async(req, res, next) => {
     const order = await Order.findOne({user:req.userId});

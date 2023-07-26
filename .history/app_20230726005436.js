@@ -48,8 +48,6 @@ app.use('/api/v1/auth',  authRoute);
 app.use('/api/v1/lecuters',  lecuterRoute);
 app.use('/api/v1/discount',  discountRoute);
 app.use('/api/v1/cart',  cartRoute);
-app.use('/api/v1/order',  orderRoute);
-
 
 
 

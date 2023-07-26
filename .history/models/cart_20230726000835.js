@@ -13,10 +13,7 @@ const cartSchema = Schema(
         required: true,
     }
     }],
-    totalPrice: {
-      type: Number,
-      default:0
-    }, 
+    totalPrice: Number,
     totlalPriceAfterDisCount: Number,
     userId:{
         type: Schema.Types.ObjectId,

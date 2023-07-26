@@ -35,7 +35,6 @@ exports.getOrders = asyncHandler(async(req, res, next) => {
     res.status(202).json({message:'orders ', order})
 })
 
-
 exports.statusOrder = asyncHandler(async(req, res, next) => {
     const order = await Order.findOne({user:req.userId});
     order.isPaid = req.body.isPaid; 

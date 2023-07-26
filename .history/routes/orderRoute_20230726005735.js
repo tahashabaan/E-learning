@@ -1,7 +1,7 @@
 const { Router } =require("express");
 
 const {isAuth, allowTo} = require('../middleware/isAuth');
-const cartService = require("../services/cartService");
+const orderService = require("../services/orderService");
 
 // const {postCategoryValidated, 
 //        getCategoryValidetor, 
@@ -14,9 +14,9 @@ router.use(isAuth, allowTo('manger', 'user'))
 
 router
 .route('/')
-.get(cartService.getCartByUser)
-.post(cartService.addCourseToCart)
-.delete(cartService.removeCart)
+.get(orderService)
+.post(orderService.)
+.delete(orderService)
 
 // router
 // .route('/:cartId')

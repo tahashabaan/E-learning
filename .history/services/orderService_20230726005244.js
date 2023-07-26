@@ -27,6 +27,7 @@ exports.createOrder = asyncHandler(async(req, res, next) => {
 
 exports.getOrderLoggedUser = asyncHandler(async(req, res, next) => {
     const order = await Order.findOne({user:req.userId});
+
     res.status(202).json({message:'order this user', order})
 })
 
@@ -34,7 +35,6 @@ exports.getOrders = asyncHandler(async(req, res, next) => {
     const order = await Order.find();
     res.status(202).json({message:'orders ', order})
 })
-
 
 exports.statusOrder = asyncHandler(async(req, res, next) => {
     const order = await Order.findOne({user:req.userId});

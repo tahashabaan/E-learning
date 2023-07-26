@@ -14,9 +14,9 @@ const cartSchema = Schema(
     }
     }],
     totalPrice: {
-      type: Number,
-      default:0
-    }, 
+      type: Schema.Types.ObjectId,
+      ref: "discount",
+    }, Number,
     totlalPriceAfterDisCount: Number,
     userId:{
         type: Schema.Types.ObjectId,

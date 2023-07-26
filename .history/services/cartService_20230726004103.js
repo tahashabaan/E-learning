@@ -50,8 +50,8 @@ exports.removeCart = asyncHandler(async (req, res, next) => {
   const {itemId} = req.body;
   const cart = await Cart.findOne({ userId: req.userId });
   const itemIndex = cart.items.findIndex(
-    (item) => item._id === itemId  );
-
+    (item) => item._id === req.params.cartId
+    );
     cart.items.slice(itemIndex, 1);
     const totalPrice = cart.price * cart.items.length;
     cart.totalPrice = totalPrice;

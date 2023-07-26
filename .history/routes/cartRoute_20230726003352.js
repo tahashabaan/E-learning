@@ -16,10 +16,9 @@ router
 .route('/')
 .get(cartService.getCartByUser)
 .post(cartService.addCourseToCart)
-.delete(cartService.removeCart)
 
-// router
-// .route('/:cartId')
-// .delete(cartService.removeCart)
+router
+.route('/:cartId')
+.delete(cartService.removeCart)
 
 module.exports= router

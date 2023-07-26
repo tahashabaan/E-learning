@@ -47,14 +47,13 @@ exports.getCartByUser = asyncHandler(async (req, res, next) => {
 });
 
 exports.removeCart = asyncHandler(async (req, res, next) => {
-  const {itemId} = req.body;
   const cart = await Cart.findOne({ userId: req.userId });
+  const totalPrice = cart.price * cart.items.length;
   const itemIndex = cart.items.findIndex(
-    (item) => item._id === itemId  );
-
-    cart.items.slice(itemIndex, 1);
-    const totalPrice = cart.price * cart.items.length;
-    cart.totalPrice = totalPrice;
+    (item) => item._id === req.params.cartId
+  );
+  cart.items.slice(itemIndex, 1);
+  cart.totalPrice = totalPrice;
   await cart.save();
 });
 
@@ -65,9 +64,9 @@ exports.clearCart = asyncHandler(async (req, res, next) => {
 });
 
 exports.applyDisCount = asyncHandler(async (req, res, next) => {
-  const { discount } = req.body; // code from user
+  const { discount } = req.body;
   const disCount = await Discount.findOne({
-    code: discount,
+    dcode: discount,
     expireDate: { $gt: Date.now() },
   });
   const cart = await Cart.findOne({ userId: req.userId });
@@ -81,6 +80,6 @@ exports.applyDisCount = asyncHandler(async (req, res, next) => {
     );
 
   cart.totlalPriceAfterDisCount =
-  cart.totalPrice - (cart.totalPrice * disCount.amount) / 100;
+    cart.totalPrice - (cart.totalPrice * disCount.amount) / 100;
   await cart.save();
 });

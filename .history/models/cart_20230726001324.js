@@ -15,7 +15,7 @@ const cartSchema = Schema(
     }],
     totalPrice: {
       type: Number,
-      default:0
+     default
     }, 
     totlalPriceAfterDisCount: Number,
     userId:{

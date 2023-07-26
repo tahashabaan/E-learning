@@ -15,7 +15,7 @@ const userRoute = require('./routes/userRoute');
 const authRoute = require('./routes/authRoute');
 const lecuterRoute = require('./routes/lecutureRoute');
 const cartRoute = require('./routes/cartRoute');
-const orderRoute = require('./routes/orderRoute');
+const orderRoute = require('./routes/orderRou');
 
 const discountRoute = require('./routes/disCount')
 
@@ -48,8 +48,6 @@ app.use('/api/v1/auth',  authRoute);
 app.use('/api/v1/lecuters',  lecuterRoute);
 app.use('/api/v1/discount',  discountRoute);
 app.use('/api/v1/cart',  cartRoute);
-app.use('/api/v1/order',  orderRoute);
-
 
 
 

@@ -7,9 +7,9 @@ const orderScheam = Schema({
         ref:'user',
         required:true
     },
-    paymentMethod:{
+    paymentMthod:{
         type:'String',
-        enum:['card']
+        enum:[]
     },
 
     isPaid:{

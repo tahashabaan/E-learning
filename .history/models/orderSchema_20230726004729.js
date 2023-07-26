@@ -5,22 +5,20 @@ const orderScheam = Schema({
     user:{
         type:Schema.Types.ObjectId,
         ref:'user',
-        required:true
+        req
     },
-    paymentMethod:{
+    paymentMthod:{
         type:'String',
-        enum:['card']
+        // enum:[]
     },
 
     isPaid:{
         type:Boolean,
         default:false
     },
-
     paidAt:{
         type:Date
     },
-
     items:[{
         courses:{
            type: Schema.Types.ObjectId,
