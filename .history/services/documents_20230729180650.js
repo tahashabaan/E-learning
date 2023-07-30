@@ -42,7 +42,6 @@ exports.getDocuments = (doc) =>
     .find(req.filterObj)
     .limit(size)
     .skip(skip);
-    
     const document = await documentBuild;
     if (!document) {
       return next(

@@ -37,13 +37,8 @@ exports.getDocuments = (doc) =>
     const skip = (page - 1) * size;
     const totalPage = Math.ceil((await doc.countDocuments()) / size);
 
-    const documentBuild = 
-    doc
-    .find(req.filterObj)
-    .limit(size)
-    .skip(skip);
+    const documentBuild = await doc.find(req.filterObj).limit(size).skip(skip);
     
-    const document = await documentBuild;
     if (!document) {
       return next(
         new ErrorHandle({ message: "failed fetch documents", statusCode: 404 })

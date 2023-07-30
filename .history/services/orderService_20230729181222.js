@@ -1,4 +1,3 @@
-const asyncHandler = require('express-async-handler');
 
 const Order = require('../models/order')
 const Cart = require('../models/cart');

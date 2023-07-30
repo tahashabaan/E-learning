@@ -37,12 +37,7 @@ exports.getDocuments = (doc) =>
     const skip = (page - 1) * size;
     const totalPage = Math.ceil((await doc.countDocuments()) / size);
 
-    const documentBuild = 
-    doc
-    .find(req.filterObj)
-    .limit(size)
-    .skip(skip);
-    
+    const documentBuild = doc.find(req.filterObj).limit(size).skip(skip);
     const document = await documentBuild;
     if (!document) {
       return next(
